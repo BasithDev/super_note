@@ -1,0 +1,54 @@
+name: SuperNote CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push add-note
+        run: |
+            cd add-note
+            docker build -t ${{ secrets.DOCKER_USERNAME }}/add-note:latest .
+            docker push ${{ secrets.DOCKER_USERNAME }}/add-note:latest
+
+      - name: Build and push list-notes
+        run: |
+            cd list-notes
+            docker build -t ${{ secrets.DOCKER_USERNAME }}/list-notes:latest .
+            docker push ${{ secrets.DOCKER_USERNAME }}/list-notes:latest
+
+      - name: Build and push view-note
+        run: |
+            cd view-note
+            docker build -t ${{ secrets.DOCKER_USERNAME }}/view-note:latest .
+            docker push ${{ secrets.DOCKER_USERNAME }}/view-note:latest
+
+      - name: Build and push host
+        run: |
+            cd host
+            docker build -t ${{ secrets.DOCKER_USERNAME }}/host:latest .
+            docker push ${{ secrets.DOCKER_USERNAME }}/host:latest
+
+      - name: Deploy with Docker Compose
+        run: |
+            docker compose down
+            docker compose pull
+            docker compose up -d

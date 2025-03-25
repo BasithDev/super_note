@@ -1,0 +1,17 @@
+services:
+  add-note:
+    build: ./add-note
+    ports:
+      - "5001:5001"
+  list-notes:
+    build: ./list-notes
+    ports:
+      - "5002:5002"
+  view-note:
+    build: ./view-note
+    ports:
+      - "5003:5003"
+  host:
+    build: ./host
+    ports:
+      - "5000:5000"
