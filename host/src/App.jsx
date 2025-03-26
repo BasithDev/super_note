@@ -6,6 +6,7 @@ const safeImport = (importFn,ErrMsg) =>
   new Promise((resolve) =>
     importFn()
       .then(resolve)
+      .then(console.log(resolve))
       .catch((err) => {
         console.error("Microfrontend failed to load:", err);
         resolve({ default: () => <h2>{ErrMsg}</h2> });
