@@ -26,6 +26,14 @@ export default defineConfig({
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
-    cors: true
+    fs: {
+      fs:{
+        allow:[
+          path.resolve(__dirname, "../add-note/src/**/*.{js,jsx,ts,tsx}"),
+          path.resolve(__dirname, "../list-notes/src/**/*.{js,jsx,ts,tsx}"),
+          path.resolve(__dirname, "../view-note/src/**/*.{js,jsx,ts,tsx}"),
+        ]
+      }
+    },
   },
 });
