@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: list-notes
-          image: basith1519/list-notes:v1.1
+          image: basith1519/list-notes:v1.2
           ports:
             - containerPort: 80
 ---

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: view-notes
-          image: basith1519/view-note:v1.1
+          image: basith1519/view-note:v1.2
           ports:
             - containerPort: 80
 ---
