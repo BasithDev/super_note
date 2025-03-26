@@ -26,26 +26,26 @@ jobs:
       - name: Build and push add-note
         run: |
             cd add-note
-            docker build -t ${{ secrets.DOCKER_USERNAME }}/add-note:latest .
-            docker push ${{ secrets.DOCKER_USERNAME }}/add-note:latest
+            docker build -t ${{ secrets.DOCKER_USERNAME }}/add-note:v1.0 .
+            docker push ${{ secrets.DOCKER_USERNAME }}/add-note:v1.0
 
       - name: Build and push list-notes
         run: |
             cd list-notes
-            docker build -t ${{ secrets.DOCKER_USERNAME }}/list-notes:latest .
-            docker push ${{ secrets.DOCKER_USERNAME }}/list-notes:latest
+            docker build -t ${{ secrets.DOCKER_USERNAME }}/list-notes:v1.0 .
+            docker push ${{ secrets.DOCKER_USERNAME }}/list-notes:v1.0
 
       - name: Build and push view-note
         run: |
             cd view-note
-            docker build -t ${{ secrets.DOCKER_USERNAME }}/view-note:latest .
-            docker push ${{ secrets.DOCKER_USERNAME }}/view-note:latest
+            docker build -t ${{ secrets.DOCKER_USERNAME }}/view-note:v1.0 .
+            docker push ${{ secrets.DOCKER_USERNAME }}/view-note:v1.0
 
       - name: Build and push host
         run: |
             cd host
-            docker build -t ${{ secrets.DOCKER_USERNAME }}/host:latest .
-            docker push ${{ secrets.DOCKER_USERNAME }}/host:latest
+            docker build -t ${{ secrets.DOCKER_USERNAME }}/host:v1.0 .
+            docker push ${{ secrets.DOCKER_USERNAME }}/host:v1.0
 
       - name: Deploy with Docker Compose
         run: |

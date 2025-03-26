@@ -11,9 +11,9 @@ export default defineConfig({
     federation({
       name: "host",
       remotes: {
-        addNote: "http://localhost:4173/assets/remoteEntry.js",
-        listNotes: "http://localhost:4174/assets/remoteEntry.js",
-        viewNote: "http://localhost:4175/assets/remoteEntry.js",
+        addNote: "http://localhost:5001/assets/remoteEntry.js",
+        listNotes: "http://localhost:5002/assets/remoteEntry.js",
+        viewNote: "http://localhost:5003/assets/remoteEntry.js",
       },
       shared: ['react', 'react-dom'],
     }),
