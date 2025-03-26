@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: add-note
-          image: basith1519/add-note:v1.2
+          image: basith1519/add-note:v1.3
           ports:
             - containerPort: 80
 ---
