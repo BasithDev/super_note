@@ -25,15 +25,6 @@ export default defineConfig({
   server: {
     headers: {
       'Access-Control-Allow-Origin': '*',
-    },
-    fs: {
-      fs:{
-        allow:[
-          path.resolve(__dirname, "../add-note/src/**/*.{js,jsx,ts,tsx}"),
-          path.resolve(__dirname, "../list-notes/src/**/*.{js,jsx,ts,tsx}"),
-          path.resolve(__dirname, "../view-note/src/**/*.{js,jsx,ts,tsx}"),
-        ]
-      }
-    },
+    }
   },
 });
